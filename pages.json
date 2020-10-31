@@ -33,7 +33,17 @@
 				"navigationBarTextStyle": "black"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/create-live/create-live",
+            "style" :                                                                                    
+            {
+                "app-plus":{
+					"titleNView": false
+				}
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		// "navigationBarTextStyle": "white",
 		// "navigationBarTitleText": "直播",
