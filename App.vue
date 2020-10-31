@@ -4,8 +4,8 @@
 			console.log('App Launch')
 			const domModule = weex.requireModule('dom')
 			domModule.addRule('fontFace', {
-				'fontFamily': "iconfont",
-				'src': "url('http://at.alicdn.com/t/font_1859985_7mxozsfdvib.ttf')"
+				fontFamily: "iconfont",
+				src: "url('http://at.alicdn.com/t/font_1859985_7mxozsfdvib.ttf')"
 			});
 			// 监听底部导航中间凸起按钮
 			uni.onTabBarMidButtonTap(() => {

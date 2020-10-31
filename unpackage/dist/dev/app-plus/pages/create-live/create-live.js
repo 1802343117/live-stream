@@ -1118,11 +1118,11 @@ var render = function() {
       _c(
         "view",
         [
-          _c("list-pusher", {
+          _c("live-pusher", {
             ref: "livePusher",
             staticClass: ["livePusher"],
             staticStyle: { width: "750rpx" },
-            style: "height: " + _vm.windowHeight + " px;",
+            style: "height:" + _vm.windowHeight + "px",
             attrs: {
               id: "livePusher",
               url: _vm.url,
@@ -1131,7 +1131,7 @@ var render = function() {
               autoFocus: true,
               devicePosition: _vm.position,
               beauty: _vm.beauty,
-              whiteness: _vm.whiteness,
+              whitness: _vm.whitness,
               aspect: "9:16"
             },
             on: {
@@ -1139,7 +1139,223 @@ var render = function() {
               netstatus: _vm.netstatus,
               error: _vm.error
             }
-          })
+          }),
+          _c(
+            "view",
+            {
+              staticStyle: {
+                position: "fixed",
+                left: "0",
+                right: "0",
+                height: "500rpx"
+              },
+              style: "top:" + _vm.statusBarHeight + "px;"
+            },
+            [
+              _c(
+                "view",
+                {
+                  staticClass: ["flex", "align-center", "justify-center"],
+                  staticStyle: { width: "90rpx", height: "90rpx" }
+                },
+                [
+                  _c("u-text", { staticClass: ["iconfont", "text-white"] }, [
+                    _vm._v("")
+                  ])
+                ]
+              ),
+              _c(
+                "view",
+                {
+                  staticClass: [
+                    "position-absolute",
+                    "rounded",
+                    "p-2",
+                    "flex",
+                    "align-center"
+                  ],
+                  staticStyle: {
+                    left: "90rpx",
+                    right: "100rpx",
+                    height: "160rpx",
+                    backgroundColor: "rgba(0,0,0,0.2)"
+                  }
+                },
+                [
+                  _c(
+                    "view",
+                    {
+                      staticClass: ["position-relative", "rounded"],
+                      staticStyle: { height: "12rpx", width: "120rpx" }
+                    },
+                    [
+                      _c("u-image", {
+                        staticStyle: { height: "120rpx", width: "120rpx" },
+                        attrs: { src: "/static/beauty/m5.jpg" }
+                      }),
+                      _c(
+                        "u-text",
+                        {
+                          staticClass: [
+                            "text-white",
+                            "position-absolute",
+                            "font"
+                          ],
+                          staticStyle: { left: "0", right: "0", bottom: "0" }
+                        },
+                        [_vm._v("更换封面")]
+                      )
+                    ],
+                    1
+                  ),
+                  _c(
+                    "view",
+                    { staticClass: ["flex-1", "ml-2"] },
+                    [
+                      _c("u-input", {
+                        staticClass: ["mb-2"],
+                        attrs: {
+                          type: "text",
+                          value: "",
+                          placeholder: "请输入直播标题"
+                        }
+                      }),
+                      _c("u-text", { staticClass: ["text-white", "font"] }, [
+                        _vm._v("#请选择分类")
+                      ])
+                    ],
+                    1
+                  )
+                ]
+              ),
+              _c(
+                "view",
+                {
+                  staticClass: [
+                    "position-absolute",
+                    "right-0",
+                    "flex",
+                    "flex-column"
+                  ],
+                  staticStyle: { width: "100rpx" }
+                },
+                [
+                  _c(
+                    "view",
+                    {
+                      staticClass: [
+                        "flex",
+                        "flex-column",
+                        "align-center",
+                        "justify-center"
+                      ],
+                      staticStyle: { height: "120rpx", width: "100rpx" }
+                    },
+                    [
+                      _c(
+                        "u-text",
+                        { staticClass: ["iconfont", "text-white", "mb-1"] },
+                        [_vm._v("󦁜")]
+                      ),
+                      _c("u-text", { staticClass: ["text-white", "font"] }, [
+                        _vm._v("翻转")
+                      ])
+                    ]
+                  ),
+                  _c(
+                    "view",
+                    {
+                      staticClass: [
+                        "flex",
+                        "flex-column",
+                        "align-center",
+                        "justify-center"
+                      ],
+                      staticStyle: { height: "120rpx", width: "100rpx" }
+                    },
+                    [
+                      _c(
+                        "u-text",
+                        { staticClass: ["iconfont", "text-white", "mb-1"] },
+                        [_vm._v("")]
+                      ),
+                      _c("u-text", { staticClass: ["text-white", "font"] }, [
+                        _vm._v("画质")
+                      ])
+                    ]
+                  ),
+                  _c(
+                    "view",
+                    {
+                      staticClass: [
+                        "flex",
+                        "flex-column",
+                        "align-center",
+                        "justify-center"
+                      ],
+                      staticStyle: { height: "120rpx", width: "100rpx" }
+                    },
+                    [
+                      _c(
+                        "u-text",
+                        { staticClass: ["iconfont", "text-white", "mb-1"] },
+                        [_vm._v("󦌬")]
+                      ),
+                      _c("u-text", { staticClass: ["text-white", "font"] }, [
+                        _vm._v("美颜")
+                      ])
+                    ]
+                  ),
+                  _c(
+                    "view",
+                    {
+                      staticClass: [
+                        "flex",
+                        "flex-column",
+                        "align-center",
+                        "justify-center"
+                      ],
+                      staticStyle: { height: "120rpx", width: "100rpx" }
+                    },
+                    [
+                      _c(
+                        "u-text",
+                        { staticClass: ["iconfont", "text-white", "mb-1"] },
+                        [_vm._v("󦌜")]
+                      ),
+                      _c("u-text", { staticClass: ["text-white", "font"] }, [
+                        _vm._v("美白")
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ]
+          ),
+          _c(
+            "view",
+            {
+              staticClass: [
+                "position-fixed",
+                "bg-main",
+                "flex",
+                "align-center",
+                "justify-center",
+                "rounded-circle"
+              ],
+              staticStyle: {
+                left: "100rpx",
+                right: "100rpx",
+                bottom: "100rpx",
+                height: "120rpx"
+              }
+            },
+            [
+              _c("u-text", { staticClass: ["text-white", "font-md"] }, [
+                _vm._v("开始视频直播")
+              ])
+            ]
+          )
         ],
         1
       )
@@ -1172,7 +1388,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _D_o
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("/* WEBPACK VAR INJECTION */(function(__f__) {Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0; //\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default =\n{\n  data: function data() {\n    return {\n      url: '', // 直播服务器地址，暂空\n      mode: 'SD', // 标清模式\n      enableCamera: true, // 是否启用摄像头\n      position: \"back\", // 默认摄像头\n      beauty: 0, // 美颜度\n      whiteness: 0, // 美白度\n      windowHeight: 0, // 窗体高度\n      context: null // 上下文\n    };\n  },\n  // 监听页面加载，其参数为上个页面传递的数据，参数类型为Object（用于页面传参）\n  onLoad: function onLoad() {\n    var res = uni.getSystemInfoSync();\n    this.windowHeight = res.windowHeight;\n  },\n  // 监听页面初次渲染完成。注意如果渲染速度快，会在页面进入动画完成前触发\n  onReady: function onReady() {\n    this.context = uni.createLivePusherContext('livePusher', this);\n    this.startPreview();\n  },\n  methods: {\n    // 开启预览\n    startPreview: function startPreview() {\n      this.context.startPreview({\n        success: function success(e) {\n          __f__(\"log\", e, \" at pages/create-live/create-live.nvue:53\");\n        } });\n\n    },\n    // 直播状态的变化\n    statechange: function statechange(e) {\n      __f__(\"log\", e, \" at pages/create-live/create-live.nvue:59\");\n    },\n    // 直播网络的变化\n    netstatus: function netstatus(e) {\n      __f__(\"log\", e, \" at pages/create-live/create-live.nvue:63\");\n    },\n    // 直播出错\n    error: function error(e) {\n      __f__(\"log\", e, \" at pages/create-live/create-live.nvue:67\");\n    } } };exports.default = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/lib/format-log.js */ 9)[\"default\"]))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvY3JlYXRlLWxpdmUvY3JlYXRlLWxpdmUubnZ1ZSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUF3QkE7QUFDQSxNQURBLGtCQUNBO0FBQ0E7QUFDQSxhQURBLEVBQ0E7QUFDQSxnQkFGQSxFQUVBO0FBQ0Esd0JBSEEsRUFHQTtBQUNBLHNCQUpBLEVBSUE7QUFDQSxlQUxBLEVBS0E7QUFDQSxrQkFOQSxFQU1BO0FBQ0EscUJBUEEsRUFPQTtBQUNBLG1CQVJBLENBUUE7QUFSQTtBQVVBLEdBWkE7QUFhQTtBQUNBLFFBZEEsb0JBY0E7QUFDQTtBQUNBO0FBQ0EsR0FqQkE7QUFrQkE7QUFDQSxTQW5CQSxxQkFtQkE7QUFDQTtBQUNBO0FBQ0EsR0F0QkE7QUF1QkE7QUFDQTtBQUNBLGdCQUZBLDBCQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsU0FIQTs7QUFLQSxLQVJBO0FBU0E7QUFDQSxlQVZBLHVCQVVBLENBVkEsRUFVQTtBQUNBO0FBQ0EsS0FaQTtBQWFBO0FBQ0EsYUFkQSxxQkFjQSxDQWRBLEVBY0E7QUFDQTtBQUNBLEtBaEJBO0FBaUJBO0FBQ0EsU0FsQkEsaUJBa0JBLENBbEJBLEVBa0JBO0FBQ0E7QUFDQSxLQXBCQSxFQXZCQSxFIiwiZmlsZSI6IjguanMiLCJzb3VyY2VzQ29udGVudCI6WyI8dGVtcGxhdGU+XG5cdDx2aWV3PlxuXHRcdDxsaXN0LXB1c2hlclxyXG5cdFx0XHRpZD0nbGl2ZVB1c2hlcidcclxuXHRcdFx0cmVmPSdsaXZlUHVzaGVyJ1xyXG5cdFx0XHRjbGFzcz0nbGl2ZVB1c2hlcidcclxuXHRcdFx0OnVybD1cInVybFwiXHJcblx0XHRcdDptb2RlPVwibW9kZVwiXHJcblx0XHRcdDplbmFibGUtY2FtZXJhPVwiZW5hYmxlQ2FtZXJhXCJcclxuXHRcdFx0OmF1dG8tZm9jdXM9XCJ0cnVlXCJcclxuXHRcdFx0OmRldmljZS1wb3NpdGlvbj1cInBvc2l0aW9uXCJcclxuXHRcdFx0OmJlYXV0eT1cImJlYXV0eVwiXHJcblx0XHRcdDp3aGl0ZW5lc3M9XCJ3aGl0ZW5lc3NcIlxyXG5cdFx0XHRhc3BlY3Q9XCI5OjE2XCJcclxuXHRcdFx0QHN0YXRlY2hhbmdlPVwic3RhdGVjaGFuZ2VcIlxyXG5cdFx0XHRAbmV0c3RhdHVzPVwibmV0c3RhdHVzXCJcclxuXHRcdFx0QGVycm9yPVwiZXJyb3JcIlxyXG5cdFx0XHQ6c3R5bGU9XCInaGVpZ2h0OiAnICsgd2luZG93SGVpZ2h0ICsgJyBweDsnXCJcclxuXHRcdFx0c3R5bGU9XCJ3aWR0aDogNzUwcnB4O1wiPlxyXG5cdFx0PC9saXN0LXB1c2hlcj5cblx0PC92aWV3PlxuPC90ZW1wbGF0ZT5cblxuPHNjcmlwdD5cblx0ZXhwb3J0IGRlZmF1bHQge1xuXHRcdGRhdGEoKSB7XG5cdFx0XHRyZXR1cm4ge1xuXHRcdFx0XHR1cmw6ICcnLCAgIC8vIOebtOaSreacjeWKoeWZqOWcsOWdgO+8jOaaguepulxyXG5cdFx0XHRcdG1vZGU6ICdTRCcsICAgLy8g5qCH5riF5qih5byPXHJcblx0XHRcdFx0ZW5hYmxlQ2FtZXJhOiB0cnVlLCAgIC8vIOaYr+WQpuWQr+eUqOaRhOWDj+WktFxyXG5cdFx0XHRcdHBvc2l0aW9uOiBcImJhY2tcIiwgICAvLyDpu5jorqTmkYTlg4/lpLRcclxuXHRcdFx0XHRiZWF1dHk6IDAsICAgLy8g576O6aKc5bqmXHJcblx0XHRcdFx0d2hpdGVuZXNzOiAwLCAgIC8vIOe+jueZveW6plxyXG5cdFx0XHRcdHdpbmRvd0hlaWdodDogMCwgICAvLyDnqpfkvZPpq5jluqZcclxuXHRcdFx0XHRjb250ZXh0OiBudWxsICAgLy8g5LiK5LiL5paHXG5cdFx0XHR9XG5cdFx0fSxcclxuXHRcdC8vIOebkeWQrOmhtemdouWKoOi9ve+8jOWFtuWPguaVsOS4uuS4iuS4qumhtemdouS8oOmAkueahOaVsOaNru+8jOWPguaVsOexu+Wei+S4uk9iamVjdO+8iOeUqOS6jumhtemdouS8oOWPgu+8iVxyXG5cdFx0b25Mb2FkKCkge1xyXG5cdFx0XHRsZXQgcmVzID0gdW5pLmdldFN5c3RlbUluZm9TeW5jKClcclxuXHRcdFx0dGhpcy53aW5kb3dIZWlnaHQgPSByZXMud2luZG93SGVpZ2h0XHJcblx0XHR9LFxyXG5cdFx0Ly8g55uR5ZCs6aG16Z2i5Yid5qyh5riy5p+T5a6M5oiQ44CC5rOo5oSP5aaC5p6c5riy5p+T6YCf5bqm5b+r77yM5Lya5Zyo6aG16Z2i6L+b5YWl5Yqo55S75a6M5oiQ5YmN6Kem5Y+RXHJcblx0XHRvblJlYWR5KCkge1xyXG5cdFx0XHR0aGlzLmNvbnRleHQgPSB1bmkuY3JlYXRlTGl2ZVB1c2hlckNvbnRleHQoJ2xpdmVQdXNoZXInLCB0aGlzKVxyXG5cdFx0XHR0aGlzLnN0YXJ0UHJldmlldygpXHJcblx0XHR9LFxuXHRcdG1ldGhvZHM6IHtcblx0XHRcdC8vIOW8gOWQr+mihOiniFxyXG5cdFx0XHRzdGFydFByZXZpZXcoKSB7XHJcblx0XHRcdFx0dGhpcy5jb250ZXh0LnN0YXJ0UHJldmlldyh7XHJcblx0XHRcdFx0XHRzdWNjZXNzOiAoZSkgPT4ge1xyXG5cdFx0XHRcdFx0XHRjb25zb2xlLmxvZyhlKTtcclxuXHRcdFx0XHRcdH1cclxuXHRcdFx0XHR9KVxyXG5cdFx0XHR9LFxyXG5cdFx0XHQvLyDnm7Tmkq3nirbmgIHnmoTlj5jljJZcclxuXHRcdFx0c3RhdGVjaGFuZ2UoZSkge1xyXG5cdFx0XHRcdGNvbnNvbGUubG9nKGUpO1xyXG5cdFx0XHR9LFxyXG5cdFx0XHQvLyDnm7Tmkq3nvZHnu5znmoTlj5jljJZcclxuXHRcdFx0bmV0c3RhdHVzKGUpIHtcclxuXHRcdFx0XHRjb25zb2xlLmxvZyhlKTtcclxuXHRcdFx0fSxcclxuXHRcdFx0Ly8g55u05pKt5Ye66ZSZXHJcblx0XHRcdGVycm9yKGUpIHtcclxuXHRcdFx0XHRjb25zb2xlLmxvZyhlKTtcclxuXHRcdFx0fVxuXHRcdH1cblx0fVxuPC9zY3JpcHQ+XG5cbjxzdHlsZT5cblxuPC9zdHlsZT5cbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///8\n");
+eval("/* WEBPACK VAR INJECTION */(function(__f__) {Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0; //\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default =\n{\n  data: function data() {\n    return {\n      url: '', // 直播服务器地址，暂空\n      mode: 'SD', // 标清模式\n      enableCamera: true, // 是否启用摄像头\n      position: \"back\", // 默认摄像头\n      beauty: 0, // 美颜度\n      whiteness: 0, // 美白度\n      windowHeight: 0, // 窗体高度\n      context: null, // 上下文\n      statusBarHeight: 0 };\n\n  },\n  // 监听页面加载，其参数为上个页面传递的数据，参数类型为Object（用于页面传参）\n  onLoad: function onLoad() {\n    var res = uni.getSystemInfoSync();\n    this.windowHeight = res.windowHeight;\n    this.statusBarHeight = res.statusBarHeight;\n  },\n  // 监听页面初次渲染完成。注意如果渲染速度快，会在页面进入动画完成前触发\n  onReady: function onReady() {\n    this.context = uni.createLivePusherContext('livePusher', this);\n    this.startPreview();\n  },\n  methods: {\n    // 开启预览\n    startPreview: function startPreview() {\n      this.context.startPreview({\n        success: function success(e) {\n          __f__(\"log\", e, \" at pages/create-live/create-live.nvue:93\");\n        } });\n\n    },\n    // 直播状态的变化\n    statechange: function statechange(e) {\n      __f__(\"log\", e, \" at pages/create-live/create-live.nvue:99\");\n    },\n    // 直播网络的变化\n    netstatus: function netstatus(e) {\n      __f__(\"log\", e, \" at pages/create-live/create-live.nvue:103\");\n    },\n    // 直播出错\n    error: function error(e) {\n      __f__(\"log\", e, \" at pages/create-live/create-live.nvue:107\");\n    } } };exports.default = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/lib/format-log.js */ 9)[\"default\"]))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvY3JlYXRlLWxpdmUvY3JlYXRlLWxpdmUubnZ1ZSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQThEQTtBQUNBLE1BREEsa0JBQ0E7QUFDQTtBQUNBLGFBREEsRUFDQTtBQUNBLGdCQUZBLEVBRUE7QUFDQSx3QkFIQSxFQUdBO0FBQ0Esc0JBSkEsRUFJQTtBQUNBLGVBTEEsRUFLQTtBQUNBLGtCQU5BLEVBTUE7QUFDQSxxQkFQQSxFQU9BO0FBQ0EsbUJBUkEsRUFRQTtBQUNBLHdCQVRBOztBQVdBLEdBYkE7QUFjQTtBQUNBLFFBZkEsb0JBZUE7QUFDQTtBQUNBO0FBQ0E7QUFDQSxHQW5CQTtBQW9CQTtBQUNBLFNBckJBLHFCQXFCQTtBQUNBO0FBQ0E7QUFDQSxHQXhCQTtBQXlCQTtBQUNBO0FBQ0EsZ0JBRkEsMEJBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQSxTQUhBOztBQUtBLEtBUkE7QUFTQTtBQUNBLGVBVkEsdUJBVUEsQ0FWQSxFQVVBO0FBQ0E7QUFDQSxLQVpBO0FBYUE7QUFDQSxhQWRBLHFCQWNBLENBZEEsRUFjQTtBQUNBO0FBQ0EsS0FoQkE7QUFpQkE7QUFDQSxTQWxCQSxpQkFrQkEsQ0FsQkEsRUFrQkE7QUFDQTtBQUNBLEtBcEJBLEVBekJBLEUiLCJmaWxlIjoiOC5qcyIsInNvdXJjZXNDb250ZW50IjpbIjx0ZW1wbGF0ZT5cblx0PHZpZXc+XG5cdFx0PGxpdmUtcHVzaGVyXHJcblx0XHRcdGlkPVwibGl2ZVB1c2hlclwiXHJcblx0XHRcdHJlZj1cImxpdmVQdXNoZXJcIlxyXG5cdFx0XHRjbGFzcz1cImxpdmVQdXNoZXJcIlxyXG5cdFx0XHQ6dXJsPVwidXJsXCJcclxuXHRcdFx0Om1vZGU9XCJtb2RlXCJcclxuXHRcdFx0OmVuYWJsZS1jYW1lcmE9XCJlbmFibGVDYW1lcmFcIlxyXG5cdFx0XHQ6YXV0by1mb2N1cz1cInRydWVcIlxyXG5cdFx0XHQ6ZGV2aWNlLXBvc2l0aW9uPVwicG9zaXRpb25cIlxyXG5cdFx0XHQ6YmVhdXR5PVwiYmVhdXR5XCJcclxuXHRcdFx0OndoaXRuZXNzPVwid2hpdG5lc3NcIlxyXG5cdFx0XHRhc3BlY3Q9XCI5OjE2XCJcclxuXHRcdFx0QHN0YXRlY2hhbmdlPVwic3RhdGVjaGFuZ2VcIlxyXG5cdFx0XHRAbmV0c3RhdHVzPVwibmV0c3RhdHVzXCJcclxuXHRcdFx0QGVycm9yPVwiZXJyb3JcIlxyXG5cdFx0XHQ6c3R5bGU9XCInaGVpZ2h0OicgKyB3aW5kb3dIZWlnaHQgKyAncHgnXCJcclxuXHRcdFx0c3R5bGU9XCJ3aWR0aDogNzUwcnB4OyBcIj5cclxuXHRcdDwvbGl2ZS1wdXNoZXI+XHJcblx0XHQ8dmlldyBzdHlsZT1cInBvc2l0aW9uOiBmaXhlZDtsZWZ0OiAwO3JpZ2h0OiAwO2hlaWdodDogNTAwcnB4O1wiIDpzdHlsZT1cIid0b3A6JyArIHN0YXR1c0JhckhlaWdodCArICdweDsnXCI+XHJcblx0XHRcdDx2aWV3IGNsYXNzPVwiZmxleCBhbGlnbi1jZW50ZXIganVzdGlmeS1jZW50ZXJcIiBzdHlsZT1cIndpZHRoOiA5MHJweDtoZWlnaHQ6IDkwcnB4O1wiPlxyXG5cdFx0XHRcdDx0ZXh0IGNsYXNzPVwiaWNvbmZvbnQgdGV4dC13aGl0ZVwiPiYjeGU2MDc7PC90ZXh0PlxyXG5cdFx0XHQ8L3ZpZXc+XHJcblx0XHRcdFxyXG5cdFx0XHQ8dmlldyBjbGFzcz1cInBvc2l0aW9uLWFic29sdXRlIHJvdW5kZWQgcC0yIGZsZXggYWxpZ24tY2VudGVyXCIgc3R5bGU9XCJsZWZ0OiA5MHJweDtyaWdodDogMTAwcnB4O2hlaWdodDogMTYwcnB4O2JhY2tncm91bmQtY29sb3I6IHJnYmEoMCwwLDAsMC4yKTtcIj5cclxuXHRcdFx0XHQ8dmlldyBzdHlsZT1cImhlaWdodDogMTJycHg7d2lkdGg6IDEyMHJweDtcIiBjbGFzcz1cInBvc2l0aW9uLXJlbGF0aXZlIHJvdW5kZWRcIj5cclxuXHRcdFx0XHRcdDxpbWFnZSBzcmM9XCIvc3RhdGljL2JlYXV0eS9tNS5qcGdcIiBzdHlsZT1cImhlaWdodDogMTIwcnB4O3dpZHRoOiAxMjBycHg7XCI+PC9pbWFnZT5cclxuXHRcdFx0XHRcdDx0ZXh0IGNsYXNzPVwidGV4dC13aGl0ZSBwb3NpdGlvbi1hYnNvbHV0ZSBmb250XCIgc3R5bGU9XCJsZWZ0OiAwO3JpZ2h0OiAwO2JvdHRvbTogMDtcIj7mm7TmjaLlsIHpnaI8L3RleHQ+XHJcblx0XHRcdFx0PC92aWV3PlxyXG5cdFx0XHRcdDx2aWV3IGNsYXNzPVwiZmxleC0xIG1sLTJcIj5cclxuXHRcdFx0XHRcdDxpbnB1dCB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgcGxhY2Vob2xkZXI9XCLor7fovpPlhaXnm7Tmkq3moIfpophcIiBjbGFzcz1cIm1iLTJcIiAvPlxyXG5cdFx0XHRcdFx0PHRleHQgY2xhc3M9XCJ0ZXh0LXdoaXRlIGZvbnRcIj4j6K+36YCJ5oup5YiG57G7PC90ZXh0PlxyXG5cdFx0XHRcdDwvdmlldz5cclxuXHRcdFx0PC92aWV3PlxyXG5cdFx0XHRcclxuXHRcdFx0PHZpZXcgY2xhc3M9XCJwb3NpdGlvbi1hYnNvbHV0ZSByaWdodC0wIGZsZXggZmxleC1jb2x1bW5cIiBzdHlsZT1cIndpZHRoOiAxMDBycHg7XCI+XHJcblx0XHRcdFx0PHZpZXcgc3R5bGU9XCJoZWlnaHQ6IDEyMHJweDt3aWR0aDogMTAwcnB4O1wiIGNsYXNzPVwiZmxleCBmbGV4LWNvbHVtbiBhbGlnbi1jZW50ZXIganVzdGlmeS1jZW50ZXJcIj5cclxuXHRcdFx0XHRcdDx0ZXh0IGNsYXNzPVwiaWNvbmZvbnQgdGV4dC13aGl0ZSBtYi0xXCI+JiN4ZTYwNWM7PC90ZXh0PlxyXG5cdFx0XHRcdFx0PHRleHQgY2xhc3M9XCJ0ZXh0LXdoaXRlIGZvbnRcIj7nv7vovaw8L3RleHQ+XHJcblx0XHRcdFx0PC92aWV3PlxyXG5cdFx0XHRcdDx2aWV3IHN0eWxlPVwiaGVpZ2h0OiAxMjBycHg7d2lkdGg6IDEwMHJweDtcIiBjbGFzcz1cImZsZXggZmxleC1jb2x1bW4gYWxpZ24tY2VudGVyIGp1c3RpZnktY2VudGVyXCI+XHJcblx0XHRcdFx0XHQ8dGV4dCBjbGFzcz1cImljb25mb250IHRleHQtd2hpdGUgbWItMVwiPiYjeGU2MGM7PC90ZXh0PlxyXG5cdFx0XHRcdFx0PHRleHQgY2xhc3M9XCJ0ZXh0LXdoaXRlIGZvbnRcIj7nlLvotKg8L3RleHQ+XHJcblx0XHRcdFx0PC92aWV3PlxyXG5cdFx0XHRcdDx2aWV3IHN0eWxlPVwiaGVpZ2h0OiAxMjBycHg7d2lkdGg6IDEwMHJweDtcIiBjbGFzcz1cImZsZXggZmxleC1jb2x1bW4gYWxpZ24tY2VudGVyIGp1c3RpZnktY2VudGVyXCI+XHJcblx0XHRcdFx0XHQ8dGV4dCBjbGFzcz1cImljb25mb250IHRleHQtd2hpdGUgbWItMVwiPiYjeGU2MzJjOzwvdGV4dD5cclxuXHRcdFx0XHRcdDx0ZXh0IGNsYXNzPVwidGV4dC13aGl0ZSBmb250XCI+576O6aKcPC90ZXh0PlxyXG5cdFx0XHRcdDwvdmlldz5cclxuXHRcdFx0XHQ8dmlldyBzdHlsZT1cImhlaWdodDogMTIwcnB4O3dpZHRoOiAxMDBycHg7XCIgY2xhc3M9XCJmbGV4IGZsZXgtY29sdW1uIGFsaWduLWNlbnRlciBqdXN0aWZ5LWNlbnRlclwiPlxyXG5cdFx0XHRcdFx0PHRleHQgY2xhc3M9XCJpY29uZm9udCB0ZXh0LXdoaXRlIG1iLTFcIj4mI3hlNjMxYzs8L3RleHQ+XHJcblx0XHRcdFx0XHQ8dGV4dCBjbGFzcz1cInRleHQtd2hpdGUgZm9udFwiPue+jueZvTwvdGV4dD5cclxuXHRcdFx0XHQ8L3ZpZXc+XHJcblx0XHRcdDwvdmlldz5cclxuXHRcdDwvdmlldz5cclxuXHRcdDx2aWV3IGNsYXNzPVwicG9zaXRpb24tZml4ZWQgYmctbWFpbiBmbGV4IGFsaWduLWNlbnRlciBqdXN0aWZ5LWNlbnRlciByb3VuZGVkLWNpcmNsZVwiIHN0eWxlPVwibGVmdDogMTAwcnB4O3JpZ2h0OiAxMDBycHg7Ym90dG9tOiAxMDBycHg7aGVpZ2h0OiAxMjBycHg7XCI+XHJcblx0XHRcdDx0ZXh0IGNsYXNzPVwidGV4dC13aGl0ZSBmb250LW1kXCI+5byA5aeL6KeG6aKR55u05pKtPC90ZXh0PlxyXG5cdFx0PC92aWV3PlxuXHQ8L3ZpZXc+XG48L3RlbXBsYXRlPlxuXG48c2NyaXB0PlxuXHRleHBvcnQgZGVmYXVsdCB7XG5cdFx0ZGF0YSgpIHtcblx0XHRcdHJldHVybiB7XG5cdFx0XHRcdHVybDogJycsICAgLy8g55u05pKt5pyN5Yqh5Zmo5Zyw5Z2A77yM5pqC56m6XHJcblx0XHRcdFx0bW9kZTogJ1NEJywgICAvLyDmoIfmuIXmqKHlvI9cclxuXHRcdFx0XHRlbmFibGVDYW1lcmE6IHRydWUsICAgLy8g5piv5ZCm5ZCv55So5pGE5YOP5aS0XHJcblx0XHRcdFx0cG9zaXRpb246IFwiYmFja1wiLCAgIC8vIOm7mOiupOaRhOWDj+WktFxyXG5cdFx0XHRcdGJlYXV0eTogMCwgICAvLyDnvo7popzluqZcclxuXHRcdFx0XHR3aGl0ZW5lc3M6IDAsICAgLy8g576O55m95bqmXHJcblx0XHRcdFx0d2luZG93SGVpZ2h0OiAwLCAgIC8vIOeql+S9k+mrmOW6plxyXG5cdFx0XHRcdGNvbnRleHQ6IG51bGwsICAgLy8g5LiK5LiL5paHXHJcblx0XHRcdFx0c3RhdHVzQmFySGVpZ2h0OiAwXG5cdFx0XHR9XG5cdFx0fSxcclxuXHRcdC8vIOebkeWQrOmhtemdouWKoOi9ve+8jOWFtuWPguaVsOS4uuS4iuS4qumhtemdouS8oOmAkueahOaVsOaNru+8jOWPguaVsOexu+Wei+S4uk9iamVjdO+8iOeUqOS6jumhtemdouS8oOWPgu+8iVxyXG5cdFx0b25Mb2FkKCkge1xyXG5cdFx0XHRsZXQgcmVzID0gdW5pLmdldFN5c3RlbUluZm9TeW5jKClcclxuXHRcdFx0dGhpcy53aW5kb3dIZWlnaHQgPSByZXMud2luZG93SGVpZ2h0XHJcblx0XHRcdHRoaXMuc3RhdHVzQmFySGVpZ2h0ID0gcmVzLnN0YXR1c0JhckhlaWdodFxyXG5cdFx0fSxcclxuXHRcdC8vIOebkeWQrOmhtemdouWIneasoea4suafk+WujOaIkOOAguazqOaEj+WmguaenOa4suafk+mAn+W6puW/q++8jOS8muWcqOmhtemdoui/m+WFpeWKqOeUu+WujOaIkOWJjeinpuWPkVxyXG5cdFx0b25SZWFkeSgpIHtcclxuXHRcdFx0dGhpcy5jb250ZXh0ID0gdW5pLmNyZWF0ZUxpdmVQdXNoZXJDb250ZXh0KCdsaXZlUHVzaGVyJywgdGhpcylcclxuXHRcdFx0dGhpcy5zdGFydFByZXZpZXcoKVxyXG5cdFx0fSxcblx0XHRtZXRob2RzOiB7XG5cdFx0XHQvLyDlvIDlkK/pooTop4hcclxuXHRcdFx0c3RhcnRQcmV2aWV3KCkge1xyXG5cdFx0XHRcdHRoaXMuY29udGV4dC5zdGFydFByZXZpZXcoe1xyXG5cdFx0XHRcdFx0c3VjY2VzczogKGUpID0+IHtcclxuXHRcdFx0XHRcdFx0Y29uc29sZS5sb2coZSk7XHJcblx0XHRcdFx0XHR9XHJcblx0XHRcdFx0fSlcclxuXHRcdFx0fSxcclxuXHRcdFx0Ly8g55u05pKt54q25oCB55qE5Y+Y5YyWXHJcblx0XHRcdHN0YXRlY2hhbmdlKGUpIHtcclxuXHRcdFx0XHRjb25zb2xlLmxvZyhlKTtcclxuXHRcdFx0fSxcclxuXHRcdFx0Ly8g55u05pKt572R57uc55qE5Y+Y5YyWXHJcblx0XHRcdG5ldHN0YXR1cyhlKSB7XHJcblx0XHRcdFx0Y29uc29sZS5sb2coZSk7XHJcblx0XHRcdH0sXHJcblx0XHRcdC8vIOebtOaSreWHuumUmVxyXG5cdFx0XHRlcnJvcihlKSB7XHJcblx0XHRcdFx0Y29uc29sZS5sb2coZSk7XHJcblx0XHRcdH1cblx0XHR9XG5cdH1cbjwvc2NyaXB0PlxuXG48c3R5bGU+XG5cbjwvc3R5bGU+XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///8\n");
 
 /***/ }),
 /* 9 */
