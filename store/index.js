@@ -11,7 +11,6 @@ export default new Vuex.Store({
 		token: null,
 	},
 	actions: {
-		
 		//登录
 		login({ state }, user) {
 			state.user = user
@@ -19,7 +18,20 @@ export default new Vuex.Store({
 
 			uni.setStorageSync('user', JSON.stringify(user))
 			uni.setStorageSync('token', user.token)
+		},
+		//获取当前用户信息
+		getUserInfo({ state }) {
+			$H.get('/user/info', {
+				token: true,
+				noJump: true,
+				toast: false
+			}).then(res => {
+				state.user = res
+				uni.setStorage({
+					key: "user",
+					data: JSON.stringify(state.user)
+				})
+			})
 		}
-
 	}
 })
