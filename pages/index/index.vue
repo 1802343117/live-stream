@@ -17,7 +17,7 @@
 		<!-- 列表 -->
 		<view class="flex flex-wrap">
 			
-			<view class="list-item" v-for="(item, index) in list" :key="index" @click="openLive">
+			<!-- <view class="list-item" v-for="(item, index) in list" :key="index" @click="openLive">
 				<image :src="item.url" style="width: 360rpx;height: 360rpx;" class="rounded" mode="aspectFill"></image>
 				<view class="rounded-circle px-2 flex align-center" style="position: absolute;left: 15rpx;top: 15rpx;background-color: rgba(0,0,0,0.4);">
 					<text class="iconfont iconbizhongguanli text-warning mr-1"></text>
@@ -39,9 +39,16 @@
 					<text v-if="item.status" class="text-white font-sm">已结束</text>
 					<text v-else class="text-white font-sm">已结束</text>
 				</view>
-			</view>
+			</view> -->
 			
-			<!-- <f-list v-for="(item, index) in list" :key="index" :item="item" :index="index" @select="select"></f-list> -->
+			<f-list
+				class="list-item"
+				v-for="(item, index) in list"
+				:key="index"
+				:item="item"
+				:index="index"
+				@click="openLive">
+			</f-list>
 		</view>
 	</view>
 	
@@ -52,68 +59,66 @@
 	import fList from "../../components/common/f-list.vue"
 	
 	export default {
+		components: {
+			fList
+		},
 		data() {
 			return {
 				list: [
 					{
-						gold: 10,
-						popularity: 10,
+						coin: 10,
+						hoy: 10,
 						title: "LOL",
 						status: false,
-						url: "/static/beauty/me.jpg"
+						cover: "/static/beauty/me.jpg"
 					},
 					{
-						gold: 11,
-						popularity: 10,
+						coin: 11,
+						hoy: 10,
 						title: "LOL",
 						status: false,
-						url: "/static/beauty/m1.jpg"
+						cover: "/static/beauty/m1.jpg"
 					},
 					{
-						gold: 21,
-						popularity: 10,
+						coin: 21,
+						hoy: 10,
 						title: "LOL",
 						status: false,
-						url: "/static/beauty/m2.jpg"
+						cover: "/static/beauty/m2.jpg"
 					},
 					{
-						gold: 13,
-						popularity: 10,
+						coin: 13,
+						hoy: 10,
 						title: "LOL",
 						status: false,
-						url: "/static/beauty/m3.jpg"
+						cover: "/static/beauty/m3.jpg"
 					},
 					{
-						gold: 41,
-						popularity: 10,
+						coin: 41,
+						hoy: 10,
 						title: "LOL",
 						status: false,
-						url: "/static/beauty/m4.jpg"
+						cover: "/static/beauty/m4.jpg"
 					},
 					{
-						gold: 51,
-						popularity: 10,
+						coin: 51,
+						hoy: 10,
 						title: "LOL",
 						status: false,
-						url: "/static/beauty/m5.jpg"
+						cover: "/static/beauty/m5.jpg"
 					},
 					{
-						gold: 21,
-						popularity: 10,
+						coin: 21,
+						hoy: 10,
 						title: "LOL",
 						status: false,
-						url: "/static/banner/XGY1.jpg"
+						cover: "/static/banner/XGY1.jpg"
 					}
 				]
 			}
 		},
-		onLoad() {
-
-		},
+		onLoad() {},
 		methods: {
-			select(e) {
-				this.list[e.index].checked = e.value;
-			},
 			openLive() {
 				uni.navigateTo({
 					url: '../live/live'
