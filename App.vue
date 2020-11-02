@@ -14,6 +14,7 @@
 				});
 				console.log('点击了中间按钮');
 			})
+			console.log(this.$store.state.state)
 		},
 		onShow: function () {
 			console.log('App Show')
