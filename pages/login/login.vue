@@ -5,28 +5,10 @@
 		</view>
 
 		<view class="px-3">
-			<input
-				type="text"
-				v-model="form.username"
-				class="bg-light px-3 mb-4 font rounded"
-				placeholder="请输入用户名"
-				style="height: 100rpx;"
-			/>
-			<input
-				type="text"
-				v-model="form.password"
-				class="bg-light px-3 mb-4 font rounded"
-				placeholder="请输入密码"
-				style="height: 100rpx;"
-			/>
-			<input
-				v-if="type != 'login'"
-				type="text"
-				v-model="form.repassword"
-				class="bg-light px-3 mb-4 font rounded"
-				placeholder="请输入确认密码"
-				style="height: 100rpx;"
-			/>
+			<input type="text" v-model="form.username" class="bg-light px-3 mb-4 font rounded" placeholder="请输入用户名" style="height: 100rpx;" />
+			<input type="text" v-model="form.password" class="bg-light px-3 mb-4 font rounded" placeholder="请输入密码" style="height: 100rpx;" />
+			<input v-if="type != 'login'" type="text" v-model="form.repassword" class="bg-light px-3 mb-4 font rounded"
+			 placeholder="请输入确认密码" style="height: 100rpx;" />
 		</view>
 
 		<view class="p-3 flex align-center justify-center" @click="submit">
@@ -44,57 +26,57 @@
 </template>
 
 <script>
-export default {
-	data() {
-		return {
-			type: 'login',
-			form: {
-				username: '',
-				password: '',
-				repassword: ''
-			}
-		};
-	},
-	methods: {
-		changeType() {
-			this.type = this.type === 'login' ? 'reg' : 'login';
-		},
-		submit() {
-			let msg = this.type === 'login' ? '登录' : '注册';
-			this.$H.post('/' + this.type, this.form).then(res => {
-				uni.showToast({
-					title: msg + '成功',
-					icon: 'none'
-				});
-				if (this.type === 'reg') {
-					this.changeType();
-					this.form = {
-						username: '',
-						password: '',
-						repassword: ''
-					};
-				} else {
-					this.$store.dispatch('login', res);
-					// uni.switchTab({
-					// 	url: '../index/index'
-					// });
-					uni.navigateBack({
-						delta: 1
-					});
+	export default {
+		data() {
+			return {
+				type: 'login',
+				form: {
+					username: '',
+					password: '',
+					repassword: ''
 				}
-			});
+			};
+		},
+		methods: {
+			changeType() {
+				this.type = this.type === 'login' ? 'reg' : 'login';
+			},
+			submit() {
+				let msg = this.type === 'login' ? '登录' : '注册';
+				this.$H.post('/' + this.type, this.form).then(res => {
+					uni.showToast({
+						title: msg + '成功',
+						icon: 'none'
+					});
+					if (this.type === 'reg') {
+						this.changeType();
+						this.form = {
+							username: '',
+							password: '',
+							repassword: ''
+						};
+					} else {
+						this.$store.dispatch('login', res);
+						// uni.switchTab({
+						// 	url: '../index/index'
+						// });
+						uni.navigateBack({
+							delta: 1
+						});
+					}
+				});
+			}
 		}
-	}
-};
+	};
 </script>
 
 <style>
-.container {
-	width: 750rpx;
-	height: 100vh;
-	margin: 0;
-	padding: 100rpx 0 0 0;
-	background-size: cover;
-	background-image: linear-gradient(to bottom, #ba7ace 0%, #8745ff 100%);
-}
+	.container {
+		width: 750rpx;
+		height: 100vh;
+		margin: 0;
+		padding: 100rpx 0 0 0;
+		background-size: cover;
+		background-image: linear-gradient(to bottom, #ba7ace 0%, #8745ff 100%);
+	}
 </style>
