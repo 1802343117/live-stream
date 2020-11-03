@@ -52,8 +52,35 @@
             }
             
         }
+        , {
+			"path": "pages/login/login",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+
+		}
         ,{
-            "path" : "pages/login/login",
+            "path" : "pages/logins/logins",
+            "style": {
+            	"app-plus": {
+            		"titleNView": false
+            	}
+            }
+            
+        }
+        ,{
+            "path" : "pages/settings/settings",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user-set/user-set",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",

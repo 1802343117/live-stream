@@ -8,6 +8,20 @@ Vue.prototype.$H = $H
 import store from './store/index.js'
 Vue.prototype.$store = store
 
+// 权限验证，必须登录后才能进入的页面
+Vue.prototype.authJump = (options) => {
+	if (!stor.state.token) {
+		uni.showToast({
+			title: '请先登录',
+			icon: 'none'
+		});
+		return uni.navigateTo({
+			url: '/pages/logins/logins.vue'
+		});
+	}
+	uni.navigateTo(options);
+}
+
 Vue.config.productionTip = false
 
 App.mpType = 'app'

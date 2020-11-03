@@ -6,6 +6,10 @@
 			<view class="flex align-center justify-center position-relative" style="width: 180rpx;height: 160rpx;">
 				<image src="../../static/beauty/m1.jpg" class="rounded-circle" style="width: 145rpx; height: 145rpx; position: absolute;top: -60rpx;"></image>
 			</view>
+			
+			<view style="position: absolute;top: 90rpx;right: 20rpx;" @click="settings">
+				<image src="../../static/beauty/m2.jpg" style="width: 70rpx;height: 70rpx;"></image>
+			</view>
 
 			<view class="flex flex-column">
 				<text class="font-md">未登录</text>
@@ -33,7 +37,7 @@
 		
 				<view class="flex flex-column">
 					<text class="font-md">{{ user.username }}</text>
-					<text class="font text-muted">Tunl</text>
+					<!-- <text class="font text-muted">Tunl</text> -->
 				</view>
 				<view class="ml-auto mr-3">
 					<view
@@ -45,14 +49,15 @@
 				</view>
 			</view>
 
-		<view class="f-divider"></view>
-		<f-list-item icon="iconbizhongguanli" title="我的金币" :showRight="false">
-			<text class="text-main font">{{ user ? user.coin : 0 }}金币 立即充值</text>
-		</f-list-item>
-		<f-list-item icon="iconzhengzaizhibo" title="我的直播"><text class="text-muted font">0 ></text></f-list-item>
-		<f-list-item icon="iconfenxiang" title="我的关注"><text class="text-muted font">0 ></text></f-list-item>
-		<f-list-item icon="iconmore" title="历史记录"><text class="text-muted font"> ></text></f-list-item>
-		<f-list-item icon="icontuichu" title="退出" @click="logout()"></f-list-item>
+			<view class="f-divider"></view>
+			<f-list-item icon="iconbizhongguanli" title="我的金币" :showRight="false">
+				<text class="text-main font">{{ user ? user.coin : 0 }}金币 立即充值</text>
+			</f-list-item>
+			<f-list-item icon="iconzhengzaizhibo" title="我的直播"><text class="text-muted font">0 ></text></f-list-item>
+			<f-list-item icon="iconfenxiang" title="我的关注"><text class="text-muted font">0 ></text></f-list-item>
+			<f-list-item icon="iconmore" title="历史记录"><text class="text-muted font"> ></text></f-list-item>
+			<f-list-item icon="icontuichu" title="退出" @click="logout()"></f-list-item>
+		</view>
 	</view>
 </template>
 
@@ -77,9 +82,14 @@
 			this.$store.dispatch('getUserInfo');
 		},
 		methods: {
+			settings() {
+				this.authJump({
+					url: '../user-set/user-set'
+				})
+			},
 			openLogin() {
 				uni.navigateTo({
-					url: '../login/login'
+					url: '../logins/logins'
 				});
 			},
 			logout() {

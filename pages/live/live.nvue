@@ -1,6 +1,7 @@
 <template>
 	<view class="flex-1">
-		<video class="flex-1" src="https://tunl-live.utools.club/live/KYtknAUDg1epZw51bq5H.flv?sign=1604411504-9ac2853e6c785c21d6b1d20aa763c6c4" autoplay :controls="false"></video>
+		<video class="flex-1" src="http://ivi.bupt.edu.cn/hls/hunanhd.m3u8" autoplay :controls="false"></video>
+		<!-- <video class="flex-1" src="https://tunl-live.utools.club/live/KYtknAUDg1epZw51bq5H.flv?sign=1604411504-9ac2853e6c785c21d6b1d20aa763c6c4" autoplay :controls="false"></video> -->
 
 		<!-- 头部 -->
 		<view style="position: fixed;left: 0;right: 0;" :style="'top:' + statusBarHeight + 'px'">
@@ -194,7 +195,10 @@
 			},
 			// 打开输入弹幕对话框
 			openInput() {
-				this.$refs.input.open()
+				this.$store.dispatch('authMethod', () => {
+					this.$refs.input.open();
+				});
+				// this.$refs.input.open()
 			},
 			// 提交发送弹幕信息
 			submit() {
