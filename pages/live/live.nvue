@@ -86,7 +86,7 @@
 				</view>
 				<view class="btn btn-icon bg-main" @click="openGift"><text class="iconfont">&#xe67c;</text></view>
 				<view class="btn btn-icon"><text class="iconfont text-white">&#xe7cd;</text></view>
-				<view class="btn btn-icon"><text class="iconfont text-white">&#xe607;</text></view>
+				<view class="btn btn-icon" @click="back"><text class="iconfont text-white">&#xe607;</text></view>
 			</view>
 		</view>
 
@@ -199,6 +199,12 @@
 			// 监听全局事件
 			uni.$on('live', this.handleLiveEvent);
 		},
+		destroyed() {
+			//离开直播间
+			this.joinOrLeaveLive('leave');
+			//移除全局事件
+			uni.$off('live', this.handleLiveEvent);
+		},
 		computed: {
 			src() {
 				if (this.detail.key == '' || this.sign == '') {
@@ -212,6 +218,12 @@
 			})
 		},
 		methods: {
+			//返回上层页面
+			back() {
+				uni.navigateBack({
+					delta: 1
+				});
+			},
 			//处理直播间事件
 			handleLiveEvent(e) {
 				let d = e.data;
