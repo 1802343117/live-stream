@@ -87,7 +87,7 @@
 	.top {
 		width: 750rpx;
 		height: 260rpx;
-		background-image: url(../../static/banner/3.jpg);
+		background-image: url(../../static/tabbar/1.jpg);
 		background-size: cover;
 		background-image: linear-gradient(to right, #ba7ace 0%, #8745ff 100%);
 	}

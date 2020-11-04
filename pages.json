@@ -72,15 +72,6 @@
             
         }
         ,{
-            "path" : "pages/settings/settings",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
             "path" : "pages/user-set/user-set",
             "style" :                                                                                    
             {

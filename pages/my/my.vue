@@ -7,9 +7,9 @@
 				<image src="../../static/beauty/m1.jpg" class="rounded-circle" style="width: 145rpx; height: 145rpx; position: absolute;top: -60rpx;"></image>
 			</view>
 			
-			<view style="position: absolute;top: 90rpx;right: 20rpx;" @click="settings">
+			<!-- <view style="position: absolute;top: 90rpx;right: 20rpx;" @click="settings">
 				<image src="../../static/beauty/m2.jpg" style="width: 70rpx;height: 70rpx;"></image>
-			</view>
+			</view> -->
 
 			<view class="flex flex-column">
 				<text class="font-md">未登录</text>
