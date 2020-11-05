@@ -211,13 +211,39 @@
 					return '';
 				}
 				return `http://lives.utools.club/live/${this.detail.key}.flv?sign=${this.sign}`;
-			}
+			},
 			...mapState({
 				socket: state => state.socket,
 				token: state => state.token
 			})
 		},
 		methods: {
+			// 处理直播间各种操作
+			handleLiveEvent(e) {
+				let d = e.data;
+				coonsole.log(d);
+				switch (e.type) {
+					case 'online':
+						if (d.action === 'join') {
+							this.list = d.data;
+						}
+						if (d.action === 'leave') {
+							this.list = d.data;
+						}
+						break;
+					case 'comment':
+						this.$refs.danmu.send({
+							id: d.id,
+							name: d.user.name,
+							content: d.content
+						})
+						this.content = ''
+						this.$refs.input.close()
+						break;
+					default:
+						break;
+				}
+			},
 			//返回上层页面
 			back() {
 				uni.navigateBack({
@@ -283,15 +309,29 @@
 			//提交发送弹幕信息
 			sumbit() {
 				if (this.content === '') {
-					return;
+					return uni.showToast({
+						title: '评论内容不能为空',
+						icon: 'none'
+					});
 				}
-				this.$refs.danmu.send({
-					id: Math.random() * 100, //随机生成一个id
-					name: this.$store.state.user.username,
-					content: this.content
-				});
-				this.content = '';
-				this.$refs.input.close();
+				
+				if (!this.token && !this.socket) {
+					uni.navigateTo({
+						url: '../logins/logins',
+					});
+					return uni.showToast({
+						title: '请先登录',
+						icon: 'none'
+					});
+				}
+				
+				if (this.socket) {
+					this.socket.emit('comment', {
+						live_id: this.id,
+						data: this.content,
+						token: this.token
+					})
+				}
 			},
 			//返回上一层页面
 			back() {
