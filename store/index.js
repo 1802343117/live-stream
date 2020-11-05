@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import $H from '../common/request.js'
+import $H from '../common/request.js';
 import $C from '../common/config.js';
 import io from '../common/uni-socket.io.js';
 
@@ -31,14 +31,22 @@ export default new Vuex.Store({
 					data: e
 				})
 			}
-			// 全局事件，用来监听发送弹幕
+			//全局事件，用来监听发送弹幕
 			let commentEvent = (e) => {
 				uni.$emit('live', {
-					type."comment",
+					type: "comment",
 					data: e
 				})
 			}
-			// 监听连接
+			//全局事件，用来监听发送礼物
+			let giftEvent = (e) => {
+				uni.$emit('live', {
+					type: "gift",
+					data: e
+				})
+			}
+
+			//监听连接
 			S.on('connect', () => {
 				console.log('socket已连接')
 				//测试一条推送数据
@@ -57,18 +65,34 @@ export default new Vuex.Store({
 						});
 					}
 				})
+				//监听在线用户信息
+				S.on('online', onlineEvent)
+				//监听弹幕信息
+				S.on('comment', commentEvent)
+				//监听礼物接收
+				S.on('gift', giftEvent)
 			})
-			// 监听失败
+			//移除监听事件
+			const removeListener = () => {
+				if (S) {
+					S.removeListener('online', onlineEvent)
+					S.removeListener('comment', commentEvent)
+					S.removeListener('gift', giftEvent)
+				}
+			}
+			//监听失败
 			S.on('error', () => {
-				console.log('连接失败')
+				removeListener()
+				state.socket = null
+				console.log('socket连接失败')
 			})
-			// 监听断开
+			//监听断开
 			S.on('disconnect', () => {
+				removeListener()
+				state.socket = null
 				console.log('已断开')
 			})
 		},
-		
-		// 需要登录才能访问的方法，这个只能放在Vuex里才能生效
 		authMethod({
 			state
 		}, callback) {
@@ -81,33 +105,7 @@ export default new Vuex.Store({
 					url: '/pages/logins/logins'
 				});
 			}
-			callback()
 		},
-		//初始化用户登录状态
-		initUser({
-			state
-		}) {
-			let u = uni.getStorageSync('user')
-			let t = uni.getStorageSync('token')
-			if (u) {
-				state.user = JSON.parse(u)
-				state.token = t
-			}
-		},
-		//退出登录
-		logout({
-			state
-		}) {
-			$H.post('/logout', {}, {
-				token: true,
-				toast: false
-			})
-			state.user = null
-			state.token = null
-			uni.removeStorageSync('user')
-			uni.removeStorageSync('token')
-		},
-		//登录
 		login({
 			state
 		}, user) {
@@ -117,7 +115,6 @@ export default new Vuex.Store({
 			uni.setStorageSync('user', JSON.stringify(user))
 			uni.setStorageSync('token', user.token)
 		},
-		//获取当前用户信息
 		getUserInfo({
 			state
 		}) {
@@ -129,10 +126,31 @@ export default new Vuex.Store({
 				state.user = res
 				uni.setStorage({
 					key: "user",
-					data: JSON.stringify(state.user)
+					data: bJSON.stringify(state.user)
 				})
 			})
+		},
+		initUser({
+			state
+		}) {
+			let u = uni.getStorageSync('user')
+			let t = uni.getStorageSync('token')
+			if (u) {
+				state.user = JSON.parse(u)
+				state.token = t
+			}
+		},
+		logout({
+			state
+		}) {
+			$H.post('/logout', {}, {
+				token: true,
+				toast: false
+			})
+			state.user = null
+			state.token = null
+			uni.removeStorageSync('user')
+			uni.removeStorageSync('token')
 		}
-
 	}
 })
